@@ -1,0 +1,330 @@
+:root {
+    --color-primario-azul: #2563eb;       
+    --color-secundario-verde: #10b981;     
+    --color-acento-rojo: #ef4444;          
+    --color-lima: #84cc16;                 
+    --bg-aplicacion: #0f172a;              
+    --bg-tarjeta: #1e293b;                 
+    --bg-hover: #334155;                   
+    --texto-principal: #f8fafc;            
+    --texto-secundario: #94a3b8;           
+    --borde-suave: #334155;                 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Century Gothic', 'Apple Gothic', sans-serif;
+}
+
+body {
+    background-color: var(--bg-aplicacion);
+    color: var(--texto-principal);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+    color: white;
+    padding: 25px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid var(--borde-suave);
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header h1 {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+header p {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+    font-weight: bold;
+}
+
+.contenedor-app {
+    display: flex;
+    max-width: 1400px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+    gap: 30px;
+    flex: 1;
+}
+
+.barra-navegacion {
+    width: 280px;
+    flex-shrink: 0;
+    background-color: var(--bg-tarjeta);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--borde-suave);
+    align-self: flex-start;
+}
+
+.barra-navegacion h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--color-secundario-verde);
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    margin-top: 20px;
+    border-bottom: 1px solid var(--borde-suave);
+    padding-bottom: 6px;
+}
+
+.barra-navegacion h3:first-of-type {
+    margin-top: 0;
+}
+
+.menu-fases {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.btn-fase {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--texto-secundario);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-fase:hover {
+    background-color: var(--bg-hover);
+    color: var(--texto-principal);
+}
+
+.btn-fase.activo {
+    background: linear-gradient(90deg, var(--color-primario-azul), #1d4ed8);
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.panel-partidos {
+    flex: 1;
+}
+
+#titulo-fase-activa {
+    font-size: 1.6rem;
+    color: var(--texto-principal);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--color-secundario-verde);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lista-partidos-lineal {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- TARJETAS DE PARTIDO --- */
+.tarjeta-partido {
+    background-color: var(--bg-tarjeta);
+    border-radius: 12px;
+    border: 1px solid var(--borde-suave);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    padding: 18px 24px;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-partido:hover {
+    transform: translateX(4px);
+    border-color: #475569;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.info-fecha-hora {
+    width: 140px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-right: 2px solid var(--borde-suave);
+    padding-right: 15px;
+}
+
+.txt-fecha {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--color-primario-azul);
+}
+
+.txt-hora {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--texto-principal);
+}
+
+.marcador-contenedor {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    gap: 8px; /* Separación homogénea de elementos */
+}
+
+/* --- NUEVAS ETIQUETAS DE POSICIÓN AL CENTRO --- */
+.tag-llave-fija-centro {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--texto-secundario);
+    background-color: #0f172a;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--borde-suave);
+    white-space: nowrap;
+    user-select: none;
+}
+
+.tag-llave-fija-centro.un-lado {
+    margin-right: 2px;
+}
+
+.tag-llave-fija-centro.otro-lado {
+    margin-left: 2px;
+}
+
+/* --- CUADROS DE TEXTO EDITABLES MANUALES --- */
+.input-pais-editable {
+    flex: 1;
+    width: 100%;
+    max-width: 190px;
+    background-color: #1a2333; 
+    border: 1px solid var(--borde-suave);
+    color: var(--texto-principal);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.input-pais-editable::placeholder {
+    color: #475569;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.input-pais-editable:focus {
+    border-color: var(--color-primario-azul);
+    background-color: #0f172a;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+}
+
+/* --- MARCADOR DE GOLES --- */
+.marcador-contenedor input[type="number"] {
+    width: 50px;
+    height: 42px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: 2px solid var(--borde-suave);
+    border-radius: 8px;
+    background-color: #0f172a;
+    color: var(--color-lima);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.marcador-contenedor input[type="number"]:focus {
+    border-color: var(--color-secundario-verde);
+    background-color: #1e293b;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+}
+
+.marcador-contenedor input::-webkit-outer-spin-button,
+.marcador-contenedor input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.separador-vs {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--texto-secundario);
+    background-color: #0f172a;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--borde-suave);
+    margin: 0 4px;
+}
+
+.nombre-pais {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--texto-principal);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 950px) {
+    .contenedor-app {
+        flex-direction: column;
+        margin: 15px auto;
+    }
+    .barra-navegacion {
+        width: 100%;
+        align-self: stretch;
+    }
+    .tarjeta-partido {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        padding: 16px;
+    }
+    .info-fecha-hora {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        border-right: none;
+        border-bottom: 1px solid var(--borde-suave);
+        padding-right: 0;
+        padding-bottom: 10px;
+    }
+    .marcador-contenedor {
+        padding-left: 0;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .input-pais-editable {
+        max-width: 100% !important;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #0f172a;
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-top: auto;
+    border-top: 1px solid var(--borde-suave);
+}
